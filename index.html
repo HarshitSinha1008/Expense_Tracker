@@ -12,20 +12,24 @@
 </head>
 <body>
     <header>
-        <h2>Expense Tracker</h2>
+        <div class="head">
+            <i class="ri-bank-fill"></i>
+            <h2>Expense Tracker</h2>
+        </div>
     </header>
     <main>
-        <form id="expenseForm">
-            <input type="text" class="grocery" placeholder="Item" id="item">
-            <input type="number" class="amount" placeholder="Amount" id="amount">
-            <input type="date" class="date" id="date">
-            <button class="btn" id="btn">Add</button>
-        </form>
-        <ul id="list"></ul>
-        <canvas id="chart"></canvas>
-        <button id="clear" class="btn">Clear ALL</button>
-    </main>
+            <form id="expenseForm">
+                <input type="text" class="grocery" placeholder="Item" id="item">
+                <input type="number" class="amount" placeholder="Amount" id="amount">
+                <input type="date" class="date" id="date">
+                <button class="btn" id="btn">Add</button>
+            </form>
+            <ul id="list"></ul>
+            <canvas id="chart"></canvas>
+        </div>
+        <div class="clear">
+            <button id="clear" class="btn1">Clear ALL</button>
+        </div>        </main>
     <script src="tracker.js"></script>
-    <footer> </footer>
 </body>
 </html>

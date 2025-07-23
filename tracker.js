@@ -45,7 +45,7 @@ function updateChart() {
     expenseChart.destroy();
   }
   expenseChart = new Chart(ctx, {
-    type: 'pie',  // 👈 CHANGED THIS
+    type: 'pie',
     data: {
       labels: labels,
       datasets: [{
