@@ -11,25 +11,91 @@
     <link rel="stylesheet" href="expense.css">
 </head>
 <body>
-    <header>
-        <div class="head">
-            <i class="ri-bank-fill"></i>
-            <h2>Expense Tracker</h2>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <i class="ri-wallet-3-fill"></i>
+                <h1>Expense Tracker Pro</h1>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Expenses</div>
+                    <div class="stat-value" id="totalExpenses">₹0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">This Month</div>
+                    <div class="stat-value" id="monthExpenses">₹0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Items</div>
+                    <div class="stat-value" id="itemCount">0</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <h2><i class="ri-add-circle-fill"></i> Add Expense</h2>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="item">Item Name</label>
+                        <input type="text" id="item" placeholder="e.g., Coffee, Groceries" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="food">🍕 Food & Dining</option>
+                            <option value="transport">🚗 Transport</option>
+                            <option value="entertainment">🎬 Entertainment</option>
+                            <option value="utilities">💡 Utilities</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📦 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="ri-add-line"></i> Add Expense
+                    </button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2><i class="ri-line-chart-fill"></i> Expense Overview</h2>
+                <div class="chart-container">
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
         </div>
-    </header>
-    <main>
-            <form id="expenseForm">
-                <input type="text" class="grocery" placeholder="Item" id="item">
-                <input type="number" class="amount" placeholder="Amount" id="amount">
-                <input type="date" class="date" id="date">
-                <button class="btn" id="btn">Add</button>
-            </form>
-            <ul id="list"></ul>
-            <canvas id="chart"></canvas>
+
+        <div class="card">
+            <h2><i class="ri-list-check-2"></i> Expense History</h2>
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="food">Food</button>
+                <button class="filter-btn" data-filter="transport">Transport</button>
+                <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+                <button class="filter-btn" data-filter="utilities">Utilities</button>
+                <button class="filter-btn" data-filter="shopping">Shopping</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+            <div class="expense-list" id="expenseList"></div>
+            <div class="action-buttons">
+                <button class="btn" id="exportBtn">
+                    <i class="ri-download-line"></i> Export Data
+                </button>
+                <button class="btn btn-danger" id="clearBtn">
+                    <i class="ri-delete-bin-line"></i> Clear All
+                </button>
+            </div>
         </div>
-        <div class="clear">
-            <button id="clear" class="btn1">Clear ALL</button>
-        </div>        </main>
-    <script src="tracker.js"></script>
+    </div>
 </body>
 </html>
